@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
   --╔═════════════════════════╗--
   --║ Themes and colorschemes ║--
   --╚═════════════════════════╝--
-  -- use ({ 'catppuccin/nvim', as = 'catppuccin' })
+  use ({ 'catppuccin/nvim', as = 'catppuccin' })
   use ({ 'rose-pine/neovim', as = 'rose-pine' })
   --╔═════════════╗--
   --║  Treesitter ║--

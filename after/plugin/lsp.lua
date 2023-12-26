@@ -3,8 +3,11 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 lsp.ensure_installed({
+    'pylsp',
+    'clangd',
     'hls',
     'lua_ls',
+    'gopls',
     'rust_analyzer',
 })
 
@@ -53,8 +56,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-lsp.setup()
-
 vim.diagnostic.config({
-    virtual_text = true
+    virtual_text = false,
+    signs = true,
 })
