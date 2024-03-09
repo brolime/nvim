@@ -20,11 +20,24 @@ return require('packer').startup(function(use)
   --╚═════════════════════════╝--
   use ({ 'catppuccin/nvim', as = 'catppuccin' })
   use ({ 'rose-pine/neovim', as = 'rose-pine' })
+  use { 'nvim-tree/nvim-web-devicons' }
+
   --╔═════════════╗--
   --║  Treesitter ║--
   --╚═════════════╝--
   use ( 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'} )
   use ('nvim-treesitter/playground')
+
+
+  --╔══════════════════╗--
+  --║  Better Comments ║--
+  --╚══════════════════╝--
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
 
   --╔══════════════════════════╗--
   --║      Startup screen      ║--
@@ -46,6 +59,14 @@ return require('packer').startup(function(use)
   --║ Undo Tree ║--
   --╚═══════════╝--
   use ('mbbill/undotree')
+  --╔═══════════╗--
+  --║ Lua Line  ║--
+  --╚═══════════╝--
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = {'nvim-tree/nvim-web-devicons', opt = true }
+  }
+  require('lualine').setup()
   --╔══════════════╗--
   --║ Vim fugitive ║--
   --╚══════════════╝--

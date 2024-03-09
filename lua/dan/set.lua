@@ -2,6 +2,9 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- comenting
+vim.cmd([[autocmd FileType * set formatoptions-=ro]])
+
 -- indenting tabs and spacing--
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
