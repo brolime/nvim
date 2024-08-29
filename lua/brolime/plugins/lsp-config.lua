@@ -77,6 +77,10 @@ return {
                         })
                     end,
 
+                    zls = function ()
+                        require("lspconfig").zls.setup({})
+                    end,
+
                     rust_analyzer = function()
                         require("lspconfig").rust_analyzer.setup({
                             on_attach = on_attach,
