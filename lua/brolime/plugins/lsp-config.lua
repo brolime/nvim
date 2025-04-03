@@ -20,6 +20,8 @@ return {
             vim.g.lsp_zero_extend_cmp = 0
             vim.g.lsp_zero_extend_lspconfig = 0
         end,
+        on_attach = function ()
+        end,
     },
     {
         "hrsh7th/nvim-cmp",
@@ -39,16 +41,16 @@ return {
                 mapping = cmp.mapping.preset.insert({
                     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
                     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-                    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                    ["<C-j>"] = cmp.mapping.confirm({ select = true }),
                     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-d>"] = cmp.mapping.scroll_docs(4),
                 }),
                 preselect = "item",
                 completion = { completeopt = "menu,menuone,noinsert" },
                 sources = {
-                    { name = "buffer" },
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
+                    { name = "buffer" },
                 },
             })
         end,
@@ -66,6 +68,9 @@ return {
             lsp_zero.on_attach(function(client, bufnr)
                 lsp_zero.default_keymaps({ buffer = bufnr })
             end)
+            vim.keymap.set('n', '<leader>to', function()
+                vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+            end, { silent = true, noremap = true })
 
             require("mason-lspconfig").setup({
                 ensure_installed = { "clangd", "lua_ls" },

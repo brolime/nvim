@@ -9,7 +9,11 @@ return {
 			auto_install = true,
 			ensure_installed = {},
 			sync_install = false,
-			highlight = { enable = true },
+            ignore_install = {'latex'},
+			highlight = {
+                enable = true,
+                disable = 'latex',
+            },
 			indent = { enable = true },
 		})
 	end,
