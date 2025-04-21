@@ -22,7 +22,8 @@ return{
             on_attach = function (bufnr)
                 vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>bl', '<cmd>lua require"gitsigns".blame_line()<CR>', {})
                 vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>hn', '<cmd>lua require"gitsigns".nav_hunk("next")<CR>', {})
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>hp', '<cmd>lua require"gitsigns".nav_hunk("prev")<CR>', {})
+                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>hN', '<cmd>lua require"gitsigns".nav_hunk("prev")<CR>', {})
+                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>hp', '<cmd>lua require"gitsigns".preview_hunk<CR>', {})
                 vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>hr', '<cmd>lua require"gitsigns".reset_hunk()<CR>', {})
                 vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gdt', '<cmd>lua require"gitsigns".diffthis()<CR>', {})
             end,

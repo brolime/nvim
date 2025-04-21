@@ -43,3 +43,12 @@ vim.keymap.set("i", "kj", "<Esc>")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+-- tabs that make sense --
+vim.keymap.set("n", "<tab>", ":tabnext<CR>", ({ silent = true }))
+vim.keymap.set("n", "<S-tab>", ":tabprev<CR>", ({ silent = true }))
+vim.keymap.set("n", "<C-t>", ":tabnew<CR>", ({ silent = true }))
+
+-- match tmux split bindings --
+vim.keymap.set("n", "<C-w> \\", ":vsplit<CR><C-ww>")
+vim.keymap.set("n", "<C-w> -", ":split<CR><C-ww>")
+
