@@ -3,7 +3,7 @@ return {
         "williamboman/mason.nvim",
         lazy = false,
         config = function()
-            require("mason").setup{
+            require("mason").setup {
                 log_level = vim.log.levels.DEBUG
             }
         end,
@@ -27,6 +27,10 @@ return {
                 cmp_nvim_lsp.default_capabilities()
             )
 
+            vim.diagnostic.config({
+                virtual_text = true
+            })
+
             local lspconfig = require("lspconfig")
 
             lspconfig.lua_ls.setup({
@@ -37,9 +41,9 @@ return {
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-            vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+            vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {}) -- also found in ../remap.lua 
             vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, {})
-            vim.keymap.set("n", "<leader>to", function ()
+            vim.keymap.set("n", "<leader>to", function()
                 vim.diagnostic.enable(not vim.diagnostic.is_enabled())
             end, { silent = true, noremap = true })
         end,

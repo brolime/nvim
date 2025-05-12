@@ -30,10 +30,9 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- I hate capital Q --
 vim.keymap.set("n", "Q", "<nop>")
--- TEST THIS -> vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- format buffer --
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format)
 
 -- easy exit --
 vim.keymap.set("i", "jk", "<Esc>")
@@ -47,8 +46,4 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<tab>", ":tabnext<CR>", ({ silent = true }))
 vim.keymap.set("n", "<S-tab>", ":tabprev<CR>", ({ silent = true }))
 vim.keymap.set("n", "<C-t>", ":tabnew<CR>", ({ silent = true }))
-
--- match tmux split bindings --
-vim.keymap.set("n", "<C-w> \\", ":vsplit<CR><C-ww>")
-vim.keymap.set("n", "<C-w> -", ":split<CR><C-ww>")
 
